@@ -1,0 +1,24 @@
+{
+  "name": "publishing-platform-e2e-tests",
+  "version": "1.0.0",
+  "description": "This repository contains the end-to-end (E2E) test suite for the Publishing Platform.",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0",
+    "eslint": "^10.2.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-playwright": "^2.10.1",
+    "globals": "^17.5.0",
+    "prettier": "^3.8.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "fast-xml-parser": "^5.6.0"
+  }
+}
