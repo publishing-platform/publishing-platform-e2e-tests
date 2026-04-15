@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.repository }}-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  codeql-sast:
+    name: CodeQL SAST scan
+    uses: publishing-platform/publishing-platform-infrastructure/.github/workflows/codeql-analysis.yml@main
+    permissions:
+      security-events: write
+
+  dependency-review:
+    name: Dependency Review scan
+    uses: publishing-platform/publishing-platform-infrastructure/.github/workflows/dependency-review.yml@main
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          show-progress: false
+
+      - name: Setup Node
+        uses: publishing-platform/publishing-platform-infrastructure/.github/actions/setup-node@main
+
+      - name: Run eslint
+        run: yarn run eslint .
+
+      - name: Run prettier
+        run: yarn run prettier --check .
