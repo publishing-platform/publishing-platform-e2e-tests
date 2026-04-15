@@ -1,4 +1,5 @@
 /* eslint-disable playwright/expect-expect */
+/* eslint-disable no-unused-vars */ // TODO - remove when tests are implemented
 import { test as setup } from "@playwright/test";
 import { logIntoSignon, publishingAppUrl } from "../lib/utils";
 
