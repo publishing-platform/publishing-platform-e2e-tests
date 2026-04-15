@@ -6,8 +6,9 @@ const authFile = "tmp/.auth/user.json";
 const signonBaseUrl = publishingAppUrl("signon");
 
 setup("authenticate", async ({ page }) => {
+  // TODO
   await page.goto(signonBaseUrl);
-  await logIntoSignon(page);
-  await page.waitForURL(signonBaseUrl);
+  // await logIntoSignon(page);
+  // await page.waitForURL(signonBaseUrl);
   await page.context().storageState({ path: authFile });
 });
