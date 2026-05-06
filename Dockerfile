@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 
 ENV APP_HOME=/app \
     TZ=Europe/London
